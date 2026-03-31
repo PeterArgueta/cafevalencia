@@ -1,227 +1,591 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Café Valencia | Jutiapa</title>
-  <style>
-    :root {
-      --bg: #fdfcfb;
-      --surface: #ffffff;
-      --text: #1a1a1a;
-      --muted: #666260;
-      --accent: #bc2c2c;
-      --border: #ece7e2;
-      --radius: 20px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Café Valencia | Jutiapa, Guatemala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
+<style>
+  :root {
+    --bg:       #fdfcfb;
+    --bg2:      #f5f1ec;
+    --white:    #ffffff;
+    --text:     #1c1a18;
+    --muted:    #7a7268;
+    --light:    #c4bdb4;
+    --accent:   #8b1a1a;
+    --border:   #e5dfd8;
+    --radius:   3px;
+  }
 
-    .container { width: min(100% - 3rem, 1100px); margin: 0 auto; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-    /* Nav */
-    header {
-      padding: 1rem 0;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--text); text-transform: uppercase; letter-spacing: 1px; }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 600; color: var(--muted); text-transform: uppercase; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    /* Hero */
-    .hero { padding: 4rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; margin: 0; letter-spacing: -1.5px; }
-    .hero p { font-size: 1.1rem; color: var(--muted); margin: 1.5rem 0; max-width: 450px; }
+  .container { width: min(100% - 3rem, 1100px); margin: 0 auto; }
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: var(--text);
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-    .btn:hover { background: var(--accent); transform: translateY(-2px); }
+  /* ─── TOPBAR ─── */
+  .topbar {
+    background: var(--text);
+    color: #aaa;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    padding: 0.5rem 0;
+  }
 
-    /* --- SECCIÓN PRODUCTOS COMPACTA --- */
-    .products-section { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 0; }
-    .section-title { margin-bottom: 3rem; }
-    .section-title h2 { font-size: 2rem; margin: 0; letter-spacing: -1px; }
-    
-    .product-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-      gap: 1.5rem; 
-    }
-    
-    .product-card { 
-      background: var(--surface); 
-      border-radius: 16px; 
-      padding: 1.2rem; 
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover { border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    
-    .product-img { 
-      width: 100%; 
-      aspect-ratio: 1 / 1; 
-      border-radius: 12px; 
-      object-fit: cover; 
-      background: #f9f9f9;
-      margin-bottom: 1rem;
-    }
-    
-    .product-card h3 { font-size: 1.1rem; margin: 0; font-weight: 700; }
-    .product-card p { font-size: 0.9rem; color: var(--muted); margin: 0.5rem 0 1rem; flex-grow: 1; }
-    
-    .price-row { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      padding-top: 1rem; 
-      border-top: 1px solid #f0f0f0; 
-    }
-    .price { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
-    .weight-tag { font-size: 0.75rem; font-weight: 700; color: #999; text-transform: uppercase; }
+  /* ─── HEADER ─── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-    /* Historia */
-    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; padding: 6rem 0; }
-    .about-content h2 { font-size: 2.2rem; letter-spacing: -1px; }
-    .team-list { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .member { background: #f0edea; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0;
+  }
 
-    /* Galería Masonry */
-    .gallery { columns: 3 250px; column-gap: 1rem; padding-bottom: 4rem; }
-    .gallery img { width: 100%; margin-bottom: 1rem; border-radius: 12px; border: 1px solid var(--border); }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+  .logo-icon { width: 40px; height: 40px; }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+  .logo-text small {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
 
-    /* Footer / WhatsApp */
-    .cta-box { 
-      background: var(--text); 
-      color: white; 
-      padding: 4rem; 
-      border-radius: 30px; 
-      text-align: center; 
-      margin-bottom: 4rem;
-    }
-    .cta-box h2 { color: white; margin-top: 0; font-size: 2.5rem; }
+  nav ul { list-style: none; display: flex; gap: 2.2rem; }
+  nav a {
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
 
-    @media (max-width: 850px) {
-      .hero, .about-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero p { margin-inline: auto; }
-      .nav-links { display: none; }
-      .cta-box { padding: 2rem; }
-    }
-  </style>
+  .btn-header {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.6rem 1.3rem;
+    background: var(--text);
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: background 0.2s;
+  }
+  .btn-header:hover { background: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 500px;
+  }
+  .hero-text { padding: 5rem 4rem 5rem 0; }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.28rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+
+  .hero p {
+    font-size: 0.98rem;
+    color: var(--muted);
+    max-width: 400px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.8rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: #6e1414; }
+
+  .hero-image {
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    margin-top: 2.2rem; padding-top: 1.8rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--text); display: block; line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.6rem; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+    margin-top: 0.3rem; display: block;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 6rem 0; }
+  .section-alt {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); display: block; margin-bottom: 0.7rem;
+  }
+
+  h2.stitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--text); margin-bottom: 1.4rem;
+  }
+
+  .sbody {
+    font-size: 0.93rem; color: var(--muted);
+    line-height: 1.85; font-weight: 300;
+  }
+  .sbody p + p { margin-top: 1rem; }
+
+  /* ─── TWO COL ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+  .two-col.flip { direction: rtl; }
+  .two-col.flip > * { direction: ltr; }
+
+  .col-img img {
+    width: 100%; border-radius: 4px;
+    object-fit: cover; aspect-ratio: 4/5;
+    display: block; border: 1px solid var(--border);
+  }
+
+  /* ─── FLAVOR ─── */
+  .flavor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+  .flavor-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
+  .flavor-tag {
+    padding: 0.42rem 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.8rem; color: var(--text);
+    background: var(--white);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .flavor-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  .process-badge {
+    display: inline-block;
+    background: var(--text); color: #fff;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 0.45rem 1rem; border-radius: var(--radius);
+    margin-bottom: 1.3rem;
+  }
+
+  /* ─── PRODUCTS ─── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .product-card:hover {
+    box-shadow: 0 10px 36px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+  }
+  .pimg { overflow: hidden; aspect-ratio: 1/1; background: var(--bg2); }
+  .pimg img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.5s;
+  }
+  .product-card:hover .pimg img { transform: scale(1.04); }
+  .pbody { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+  .pbody h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--text); margin-bottom: 0.4rem;
+  }
+  .pbody p { font-size: 0.83rem; color: var(--muted); font-weight: 300; line-height: 1.65; flex: 1; }
+  .pfooter {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 1.2rem; padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem; font-weight: 700; color: var(--text);
+  }
+  .wtag {
+    font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--border);
+    padding: 0.28rem 0.65rem; border-radius: 100px;
+  }
+
+  /* ─── TEAM ─── */
+  .team-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .team-tag {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 0.42rem 0.95rem; border-radius: 100px;
+    font-size: 0.8rem; color: var(--text);
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery { columns: 3 200px; column-gap: 1rem; margin-top: 3rem; }
+  .gallery img {
+    width: 100%; margin-bottom: 1rem; border-radius: 4px;
+    border: 1px solid var(--border); display: block;
+    object-fit: cover; transition: opacity 0.3s;
+  }
+  .gallery img:hover { opacity: 0.85; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--text);
+    padding: 6rem 0; text-align: center;
+  }
+  .cta-section .eyebrow { color: #c8a96e; }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; color: #fff; margin-bottom: 1rem;
+  }
+  .cta-section p {
+    font-size: 0.92rem; color: #9a9080;
+    max-width: 460px; margin: 0 auto 2.5rem;
+    line-height: 1.8; font-weight: 300;
+  }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.95rem 2rem; background: #25d366; color: #fff;
+    text-decoration: none; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border-radius: var(--radius); transition: all 0.25s;
+  }
+  .btn-wa:hover { background: #1da851; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 2.2rem 0;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--text); text-decoration: none;
+  }
+  .footer-info { font-size: 0.73rem; color: var(--muted); text-align: center; line-height: 1.7; }
+  .footer-copy { font-size: 0.68rem; color: var(--light); }
+
+  /* ─── FADE ─── */
+  .fade { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade.on { opacity: 1; transform: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 860px) {
+    .hero-inner, .two-col, .flavor-grid { grid-template-columns: 1fr; }
+    .two-col.flip { direction: ltr; }
+    .hero-text { padding: 3rem 0; }
+    .hero-image { min-height: 280px; }
+    nav ul, .btn-header { display: none; }
+    .section { padding: 4rem 0; }
+    .gallery { columns: 2 160px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container nav">
-      <a href="#" class="logo">Café <span>Valencia</span></a>
-      <nav class="nav-links">
-        <a href="#productos">Cafés</a>
-        <a href="#historia">Historia</a>
-        <a href="#galeria">Galería</a>
-      </nav>
-      <a href="https://wa.me/50235202744" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.75rem;">Contacto</a>
-    </div>
-  </header>
+<div class="topbar">Café de altura · Aldea Valencia, Jutiapa, Guatemala · Envíos a todo el país</div>
 
-  <main>
-    <section class="container hero">
-      <div>
-        <span style="color: var(--accent); font-weight: 800; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px;">Jutiapa, Guatemala</span>
-        <h1>Café de altura de Aldea Valencia</h1>
-        <p>Procesamos nuestro propio café seleccionando frutos maduros y cuidando cada etapa del proceso.</p>
-        <a href="https://wa.me/50235202744?text=%C2%A1Hola!%20Quisiera%20comprar%20Caf%C3%A9%20Valencia.%20%C2%BFC%C3%B3mo%20puedo%20adquirirlo%3F" class="btn">Pedir por WhatsApp</a>
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo-wrap">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" fill="#fdfcfb" stroke="#e5dfd8" stroke-width="1.2"/>
+        <path d="M11 15h18l-2 11H13L11 15z" fill="#1c1a18"/>
+        <path d="M29 18h2a2.5 2.5 0 010 5h-2" stroke="#1c1a18" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M15 12c0-1.5 2.5-1.5 2.5-3" stroke="#8b1a1a" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M20 12c0-1.5 2.5-1.5 2.5-3" stroke="#8b1a1a" stroke-width="1.1" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        Café Valencia
+        <small>Jutiapa · Guatemala</small>
       </div>
-      <img src="images/bolsa-principal.png" alt="Bolsa Café Valencia" style="width: 100%; border-radius: 20px;">
-    </section>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#cafe">Nuestro Café</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#galeria">Galería</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/50235202744" class="btn-header">Contacto</a>
+  </div>
+</header>
 
-    <section id="productos" class="products-section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Nuestros Cafés</h2>
-          <p style="color: var(--muted);">El café es selecionado cuidadosamente, procesando los granos maduros para ofrecer la mejor calidad.</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="product-card">
-            <img src="images/producto-1.jpeg" class="product-img" alt="Café Valencia">
-            <h3>Café Valencia Honey</h3>
-            <p>Cultivado entre 1,750 y 1,800 msnm. Sabor dulce y balanceado.</p>
-            <div class="price-row">
-              <span class="price">Q65.00</span>
-              <span class="weight-tag">1 Libra</span>
-            </div>
-          </article>
-
-          </div>
-      </div>
-    </section>
-
-    <section id="historia" class="container about-grid">
-      <img src="images/finca.jpg" alt="Finca Valencia" style="width: 100%; border-radius: 20px;">
-      <div class="about-content">
-        <span style="color: var(--accent); font-weight: 800; font-size: 2rem; text-transform: uppercase;">Nuestra Historia</span>
-        <h2>Café Jutiapaneco</h2>
-        <p>En la Aldea Valencia decidimos dar el siguiente paso: dejar de vender nuestro café en cereza para transformarlo nosotros mismos, ayudando al desarrollo de la comunidad. Bajo sombra de gravileos, cuidamos cada etapa del proceso.</p>
-        <p>Este proyecto es el resultado del trabajo y pasión de:</p>
-        <div class="team-list">
-          <span class="member">Daniel Ordoñez</span>
-          <span class="member">Aroldo Flores</span>
-          <span class="member">Peter Argueta</span>
-        </div>
-        <p>Y de muchas personas que nos ayudan en cada proceso, desde la recolección hasta el procesamiento.</p>
-      </div>
-    </section>
-
-    <section id="galeria" class="container">
-      <div class="section-title">
-        <h2>Galería</h2>
-        <p style="color: var(--muted);">El día a día en la finca.</p>
-      </div>
-      <div class="gallery">
-        <img src="images/galeria-1.jpeg" alt="Café">
-        <img src="images/galeria-2.jpeg" alt="Finca">
-        <img src="images/galeria-3.jpeg" alt="Finca2">
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="cta-box">
-        <h2>¿Quieres probarlo?</h2>
-        <p style="opacity: 0.8; margin-bottom: 2rem;">Hacemos envíos a todo el país. Escríbenos para confirmar disponibilidad.</p>
-        <a href="https://wa.me/50235202744?text=%C2%A1Hola!%20Quisiera%20comprar%20Caf%C3%A9%20Valencia.%20%C2%BFC%C3%B3mo%20puedo%20adquirirlo%3F" class="btn" style="background: #25d366; color: white; border: none;">
-          Enviar WhatsApp al 3520-2744
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-tag">Jutiapa, Guatemala</span>
+        <h1>Café de <em>altura</em> de Aldea Valencia</h1>
+        <p>Procesamos nuestro propio café seleccionando frutos maduros y cuidando cada etapa del proceso, directo desde las montañas de Jutiapa.</p>
+        <a href="https://wa.me/50235202744?text=%C2%A1Hola!%20Quisiera%20comprar%20Caf%C3%A9%20Valencia." class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir por WhatsApp
         </a>
+        <div class="hero-stats">
+          <div><span class="stat-num">1,800</span><span class="stat-label">msnm altitud</span></div>
+          <div><span class="stat-num">100%</span><span class="stat-label">Frutos maduros</span></div>
+          <div><span class="stat-num">Honey</span><span class="stat-label">Proceso</span></div>
+        </div>
       </div>
-    </section>
-  </main>
+      <div class="hero-image">
+        <img src="images/bolsa-principal.jpeg" alt="Bolsa Café Valencia">
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer style="text-align: center; padding-bottom: 3rem; color: #999; font-size: 0.8rem;">
-    &copy; Café Valencia · Guatemala
-  </footer>
+<!-- NUESTRO CAFÉ -->
+<section id="cafe" class="section">
+  <div class="container">
+    <div class="two-col fade">
+      <div class="col-img">
+        <img src="images/finca.jpg" alt="Finca Café Valencia">
+      </div>
+      <div>
+        <span class="eyebrow">Nuestro Café</span>
+        <h2 class="stitle">Cultivado en las montañas de Jutiapa</h2>
+        <div class="sbody">
+          <p>Nuestro café crece entre 1,750 y 1,800 msnm en la Aldea Valencia, Jutiapa, bajo condiciones ideales de suelo, temperatura y sombra natural de gravileos.</p>
+          <p>Utilizamos el proceso <strong>Honey</strong>, seleccionando únicamente los frutos más maduros en cada recolección para garantizar un perfil de taza dulce, limpio y balanceado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- NOTAS DE SABOR -->
+<section id="notas" class="section section-alt">
+  <div class="container">
+    <div class="flavor-grid fade">
+      <div>
+        <span class="eyebrow">Perfil de Taza</span>
+        <h2 class="stitle">Características de sabor</h2>
+        <span class="process-badge">Proceso Honey</span>
+        <p class="sbody">Un café de altura con notas dulces, aroma floral y cuerpo agradable. El proceso Honey resalta los azúcares naturales del fruto, dando una taza equilibrada y memorable.</p>
+      </div>
+      <div>
+        <p style="font-size:0.65rem; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); margin-bottom:1rem;">Notas:</p>
+        <div class="flavor-tags">
+          <span class="flavor-tag">Miel</span>
+          <span class="flavor-tag">Panela</span>
+          <span class="flavor-tag">Manzana roja</span>
+          <span class="flavor-tag">Chocolate</span>
+          <span class="flavor-tag">Caramelo</span>
+          <span class="flavor-tag">Floral</span>
+          <span class="flavor-tag">Cuerpo medio</span>
+          <span class="flavor-tag">Frutas dulces</span>
+          <span class="flavor-tag">Balanceado</span>
+          <span class="flavor-tag">Dulce</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos" class="section">
+  <div class="container fade">
+    <span class="eyebrow">Tienda</span>
+    <h2 class="stitle">Nuestros Cafés</h2>
+    <p class="sbody">El café es seleccionado cuidadosamente, procesando los granos maduros para ofrecer la mejor calidad en cada bolsa.</p>
+    <div class="products-grid">
+      <article class="product-card">
+        <div class="pimg"><img src="images/producto-1.jpeg" alt="Café Valencia Honey"></div>
+        <div class="pbody">
+          <h3>Café Valencia Honey</h3>
+          <p>Cultivado entre 1,750 y 1,800 msnm. Sabor dulce y balanceado, con notas de miel y chocolate.</p>
+          <div class="pfooter">
+            <span class="price">Q65.00</span>
+            <span class="wtag">1 Libra</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORIA -->
+<section id="historia" class="section section-alt">
+  <div class="container">
+    <div class="two-col flip fade">
+      <div class="col-img">
+        <img src="images/finca.jpg" alt="Finca Valencia">
+      </div>
+      <div>
+        <span class="eyebrow">Nuestra Historia</span>
+        <h2 class="stitle">Café Jutiapaneco con propósito</h2>
+        <div class="sbody">
+          <p>En la Aldea Valencia decidimos dar el siguiente paso: dejar de vender nuestro café en cereza para transformarlo nosotros mismos, agregando valor y ayudando al desarrollo de la comunidad.</p>
+          <p>Bajo sombra de gravileos, cuidamos cada etapa del proceso. Este proyecto es el resultado del trabajo y pasión de:</p>
+        </div>
+        <div class="team-list">
+          <span class="team-tag">Daniel Ordoñez</span>
+          <span class="team-tag">Aroldo Flores</span>
+          <span class="team-tag">Peter Argueta</span>
+        </div>
+        <p class="sbody" style="margin-top:1rem;">Y de muchas personas que nos ayudan desde la recolección hasta el procesamiento final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="section">
+  <div class="container fade">
+    <span class="eyebrow">Galería</span>
+    <h2 class="stitle">El día a día en la finca</h2>
+    <div class="gallery">
+      <img src="images/galeria-1.jpeg" alt="Café Valencia">
+      <img src="images/galeria-2.jpeg" alt="Finca">
+      <img src="images/galeria-3.jpeg" alt="Proceso">
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade">
+    <span class="eyebrow">Pedidos</span>
+    <h2>¿Quieres probarlo?</h2>
+    <p>Hacemos envíos a todo el país. Escríbenos para confirmar disponibilidad y coordinar tu pedido.</p>
+    <a href="https://wa.me/50235202744?text=%C2%A1Hola!%20Quisiera%20comprar%20Caf%C3%A9%20Valencia.%20%C2%BFC%C3%B3mo%20puedo%20adquirirlo%3F" class="btn-wa">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar WhatsApp al 3520-2744
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <a href="#" class="footer-logo">Café Valencia</a>
+    <div class="footer-info">
+      Aldea Valencia, Jutiapa, Guatemala<br>
+      Tel: +502 3520-2744
+    </div>
+    <p class="footer-copy">&copy; 2025 Café Valencia</p>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
