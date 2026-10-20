@@ -33,3 +33,11 @@ Las fotos del producto corresponden a `283379.jpg` (bolsa en mano) y `283321.jpg
 El catálogo aísla la bolsa con un `clipPath` SVG sobre la fotografía original. No reconstruye el empaque, el texto ni el código QR. La imagen de origen se conserva y el fondo marfil pertenece al diseño de la página. El recorte generado durante la exploración visual no se incorpora al sitio.
 
 Fotos de finca: `293377.jpg` (rama), `293417.jpg` (frutos) y `293423.jpg` (cafetal). Se redimensionaron y comprimieron para web sin inventar elementos ni modificar su contenido.
+
+## Tipografía
+
+El sistema usa Altivo Regular (peso 400), con Lato Regular como alternativa temporal. Se retiraron el cambio de color y la cursiva dentro del título, y se redujeron las mayúsculas espaciadas y el énfasis decorativo.
+
+Altivo solo se activa con `local()` cuando está instalada en el dispositivo. Para servirla a todos los visitantes falta incorporar un WOFF2 autorizado para web o un Web Project de Adobe Fonts proporcionado por la marca. No se descarga una copia de terceros ni se solicita un archivo inexistente. La vista de revisión utiliza Lato cuando Altivo no está disponible y no debe presentarse como una muestra real de Altivo.
+
+La jerarquía depende del tamaño, interlineado y separación; no se simulan negritas ni cursivas de Altivo Regular. Los archivos de las tipografías anteriores se conservan, pero los estilos Playfair Display y Lato Bold ya no se cargan.
