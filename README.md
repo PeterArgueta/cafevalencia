@@ -40,4 +40,4 @@ Ubuntu Regular (peso 400) se aloja localmente en WOFF2 con su licencia incluida.
 
 Se mantienen el título en un solo color y estilo normal y los rótulos sin mayúsculas espaciadas. La jerarquía depende del tamaño, interlineado y separación; no se simulan negritas ni cursivas.
 
-`images/logo-valencia.png` es el logotipo proporcionado por la marca (`Logo_cafe_valencia.png`), conservado sin cambios de diseño o proporción. Se utiliza en el encabezado en lugar de la taza genérica y en el pie de página.
+El encabezado y el pie presentan únicamente el nombre Café Valencia, sin logotipo ni ícono. `images/logo-valencia.png` se conserva como archivo de la marca, pero no se muestra en la página.
