@@ -7,7 +7,7 @@ Sitio estático de Café Valencia, Jutiapa, Guatemala. HTML, CSS y JavaScript si
 - `index.html`: información comercial, secciones y enlaces de pedido por WhatsApp.
 - `assets/styles.css`: paleta, tipografías, componentes y reglas responsive.
 - `assets/site.js`: menú móvil accesible. Sin JavaScript, el menú permanece visible.
-- `assets/fonts/`: Lato y Playfair Display, con sus respectivas licencias OFL.
+- `assets/fonts/`: Ubuntu Regular con su licencia Ubuntu Font Licence. Los archivos anteriores de Lato y Playfair Display se conservan con sus licencias, pero ya no se cargan.
 - `images/`: fotografías reales del producto en WebP de 480 y 960 px para portada y catálogo; las seis imágenes anteriores se conservan como archivos. Las secciones informativas y la galería usan las tres fotografías reales de la finca proporcionadas por la marca, optimizadas a 360 y 717 px.
 
 ## Vista local
@@ -33,3 +33,11 @@ Las fotos del producto corresponden a `283379.jpg` (bolsa en mano) y `283321.jpg
 El catálogo aísla la bolsa con un `clipPath` SVG sobre la fotografía original. No reconstruye el empaque, el texto ni el código QR. La imagen de origen se conserva y el fondo marfil pertenece al diseño de la página. El recorte generado durante la exploración visual no se incorpora al sitio.
 
 Fotos de finca: `293377.jpg` (rama), `293417.jpg` (frutos) y `293423.jpg` (cafetal). Se redimensionaron y comprimieron para web sin inventar elementos ni modificar su contenido.
+
+## Tipografía e identidad
+
+Ubuntu Regular (peso 400) se aloja localmente en WOFF2 con su licencia incluida. No depende de Adobe Fonts, de una suscripción ni de que la fuente esté instalada en el equipo del visitante. Sustituye la preparación provisional de Altivo y Lato.
+
+Se mantienen el título en un solo color y estilo normal y los rótulos sin mayúsculas espaciadas. La jerarquía depende del tamaño, interlineado y separación; no se simulan negritas ni cursivas.
+
+`images/logo-valencia.png` es el logotipo proporcionado por la marca (`Logo_cafe_valencia.png`), conservado sin cambios de diseño o proporción. Se utiliza en el encabezado en lugar de la taza genérica y en el pie de página.
