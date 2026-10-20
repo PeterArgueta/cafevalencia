@@ -78,7 +78,18 @@
     <p class="sbody">El café es seleccionado cuidadosamente, procesando los granos maduros para ofrecer la mejor calidad en cada bolsa.</p>
     <div class="products-grid">
       <article class="product-card">
-        <div class="pimg"><img src="images/valencia-producto-960.webp" srcset="images/valencia-producto-480.webp 480w, images/valencia-producto-960.webp 960w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 860px) calc((100vw - 80px) / 2), (max-width: 1000px) calc((100vw - 88px) / 2), (max-width: 1280px) calc((100vw - 168px) / 2), 556px" width="960" height="1280" decoding="async" loading="lazy" alt="Bolsa de Café Valencia Honey sobre una mesa"></div>
+        <div class="pimg product-isolated">
+          <!-- A vector clipping path shows the original photographed pixels, including the QR. -->
+          <svg class="product-cutout" viewBox="250 160 650 1200" width="650" height="1200" role="img" aria-labelledby="product-photo-title">
+            <title id="product-photo-title">Bolsa de Café Valencia Honey sin el fondo de la habitación</title>
+            <defs>
+              <clipPath id="product-bag-contour" clipPathUnits="userSpaceOnUse">
+                <path d="M320 181 C309 183 298 185 296 200 L292 262 L288 361 L284 499 L280 674 L277 824 L273 1009 L272 1172 L268 1284 L269 1322 Q270 1335 289 1337 L859 1339 Q879 1338 881 1322 L881 1294 L875 1270 L879 1100 L882 900 L882 660 L875 470 L867 280 L862 212 Q861 201 849 200 L782 201 L674 196 L527 196 L423 188 Z"/>
+              </clipPath>
+            </defs>
+            <image href="images/valencia-producto-960.webp" x="0" y="0" width="1152" height="1536" clip-path="url(#product-bag-contour)"/>
+          </svg>
+        </div>
         <div class="pbody">
           <h3>Café Valencia Honey</h3>
           <p>Cultivado entre 1,750 y 1,800 msnm. Sabor dulce y balanceado, con notas de miel y chocolate.</p>
@@ -98,7 +109,7 @@
   <div class="container">
     <div class="two-col">
       <div class="col-img">
-        <img src="images/finca.jpg" width="2160" height="3840" decoding="async" loading="lazy" alt="Granos de café en una mano">
+        <img src="images/finca-cafetal-717.webp" srcset="images/finca-cafetal-360.webp 360w, images/finca-cafetal-717.webp 717w" sizes="(max-width: 640px) calc(100vw - 40px), 556px" width="717" height="1536" decoding="async" loading="lazy" alt="Cafetales y árboles de sombra en la finca de Café Valencia">
       </div>
       <div>
         <span class="eyebrow">Nuestro Café</span>
@@ -146,7 +157,7 @@
   <div class="container">
     <div class="two-col flip">
       <div class="col-img">
-        <img src="images/finca.jpg" width="2160" height="3840" decoding="async" loading="lazy" alt="Detalle de granos de café en una mano">
+        <img src="images/finca-frutos-717.webp" srcset="images/finca-frutos-360.webp 360w, images/finca-frutos-717.webp 717w" sizes="(max-width: 640px) calc(100vw - 40px), 556px" width="717" height="1536" decoding="async" loading="lazy" alt="Detalle de frutos verdes en las ramas de un cafeto de la finca">
       </div>
       <div>
         <span class="eyebrow">Nuestra Historia</span>
@@ -172,9 +183,9 @@
     <span class="eyebrow">Galería</span>
     <h2 class="stitle">El día a día en la finca</h2>
     <div class="gallery">
-      <img src="images/galeria-1.jpeg" width="960" height="1280" decoding="async" loading="lazy" alt="Granos de café extendidos durante el secado">
-      <img src="images/galeria-2.jpeg" width="3072" height="4080" decoding="async" loading="lazy" alt="Rama de cafeto con frutos verdes">
-      <img src="images/galeria-3.jpeg" width="963" height="1280" decoding="async" loading="lazy" alt="Vista de los cafetos bajo árboles de sombra">
+      <img src="images/finca-rama-717.webp" srcset="images/finca-rama-360.webp 360w, images/finca-rama-717.webp 717w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1280px) calc((100vw - 128px) / 3), 384px" width="717" height="1536" decoding="async" loading="lazy" alt="Rama de cafeto con frutos verdes en la finca de Café Valencia">
+      <img src="images/finca-frutos-717.webp" srcset="images/finca-frutos-360.webp 360w, images/finca-frutos-717.webp 717w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1280px) calc((100vw - 128px) / 3), 384px" width="717" height="1536" decoding="async" loading="lazy" alt="Acercamiento de frutos verdes de café">
+      <img src="images/finca-cafetal-717.webp" srcset="images/finca-cafetal-360.webp 360w, images/finca-cafetal-717.webp 717w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1280px) calc((100vw - 128px) / 3), 384px" width="717" height="1536" decoding="async" loading="lazy" alt="Vista de los cafetales y árboles de la finca">
     </div>
   </div>
 </section>
