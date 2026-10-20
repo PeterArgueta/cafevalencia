@@ -7,7 +7,7 @@ Sitio estático de Café Valencia, Jutiapa, Guatemala. HTML, CSS y JavaScript si
 - `index.html`: información comercial, secciones y enlaces de pedido por WhatsApp.
 - `assets/styles.css`: paleta, tipografías, componentes y reglas responsive.
 - `assets/site.js`: menú móvil accesible. Sin JavaScript, el menú permanece visible.
-- `assets/fonts/`: Lato y Playfair Display, con sus respectivas licencias OFL.
+- `assets/fonts/`: Ubuntu Regular con su licencia Ubuntu Font Licence. Los archivos anteriores de Lato y Playfair Display se conservan con sus licencias, pero ya no se cargan.
 - `images/`: fotografías reales del producto en WebP de 480 y 960 px para portada y catálogo; las seis imágenes anteriores se conservan como archivos. Las secciones informativas y la galería usan las tres fotografías reales de la finca proporcionadas por la marca, optimizadas a 360 y 717 px.
 
 ## Vista local
@@ -34,10 +34,10 @@ El catálogo aísla la bolsa con un `clipPath` SVG sobre la fotografía original
 
 Fotos de finca: `293377.jpg` (rama), `293417.jpg` (frutos) y `293423.jpg` (cafetal). Se redimensionaron y comprimieron para web sin inventar elementos ni modificar su contenido.
 
-## Tipografía
+## Tipografía e identidad
 
-El sistema usa Altivo Regular (peso 400), con Lato Regular como alternativa temporal. Se retiraron el cambio de color y la cursiva dentro del título, y se redujeron las mayúsculas espaciadas y el énfasis decorativo.
+Ubuntu Regular (peso 400) se aloja localmente en WOFF2 con su licencia incluida. No depende de Adobe Fonts, de una suscripción ni de que la fuente esté instalada en el equipo del visitante. Sustituye la preparación provisional de Altivo y Lato.
 
-Altivo solo se activa con `local()` cuando está instalada en el dispositivo. Para servirla a todos los visitantes falta incorporar un WOFF2 autorizado para web o un Web Project de Adobe Fonts proporcionado por la marca. No se descarga una copia de terceros ni se solicita un archivo inexistente. La vista de revisión utiliza Lato cuando Altivo no está disponible y no debe presentarse como una muestra real de Altivo.
+Se mantienen el título en un solo color y estilo normal y los rótulos sin mayúsculas espaciadas. La jerarquía depende del tamaño, interlineado y separación; no se simulan negritas ni cursivas.
 
-La jerarquía depende del tamaño, interlineado y separación; no se simulan negritas ni cursivas de Altivo Regular. Los archivos de las tipografías anteriores se conservan, pero los estilos Playfair Display y Lato Bold ya no se cargan.
+`images/logo-valencia.png` es el logotipo proporcionado por la marca (`Logo_cafe_valencia.png`), conservado sin cambios de diseño o proporción. Se utiliza en el encabezado en lugar de la taza genérica y en el pie de página.
