@@ -8,7 +8,7 @@ Sitio estático de Café Valencia, Jutiapa, Guatemala. HTML, CSS y JavaScript si
 - `assets/styles.css`: paleta, tipografías, componentes y reglas responsive.
 - `assets/site.js`: menú móvil accesible. Sin JavaScript, el menú permanece visible.
 - `assets/fonts/`: Lato y Playfair Display, con sus respectivas licencias OFL.
-- `images/`: fotografías reales del producto en WebP de 480 y 960 px para portada y catálogo; las seis imágenes anteriores se conservan como archivos. Las imágenes de finca y galería siguen pendientes de confirmar o reemplazar con fotografías reales.
+- `images/`: fotografías reales del producto en WebP de 480 y 960 px para portada y catálogo; las seis imágenes anteriores se conservan como archivos. Las secciones informativas y la galería usan las tres fotografías reales de la finca proporcionadas por la marca, optimizadas a 360 y 717 px.
 
 ## Vista local
 
@@ -29,3 +29,7 @@ Al actualizar contenido comercial, confirmar precio, presentación, disponibilid
 Cuando se reciban las fotografías originales, preparar versiones optimizadas para web, actualizar sus dimensiones y descripciones, y conservar la prioridad de carga de la portada y la carga diferida del resto.
 
 Las fotos del producto corresponden a `283379.jpg` (bolsa en mano) y `283321.jpg` (bolsa en mesa), proporcionadas por la marca. Solo se redimensionaron y comprimieron; no se generaron fondos ni se retocó el empaque o la etiqueta.
+
+El catálogo aísla la bolsa con un `clipPath` SVG sobre la fotografía original. No reconstruye el empaque, el texto ni el código QR. La imagen de origen se conserva y el fondo marfil pertenece al diseño de la página. El recorte generado durante la exploración visual no se incorpora al sitio.
+
+Fotos de finca: `293377.jpg` (rama), `293417.jpg` (frutos) y `293423.jpg` (cafetal). Se redimensionaron y comprimieron para web sin inventar elementos ni modificar su contenido.
