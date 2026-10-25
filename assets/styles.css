@@ -253,3 +253,11 @@ footer { padding-block:42px; }
   .gallery img { aspect-ratio:3 / 4; }
   .cta-section { padding-block:56px; }
 }
+
+/* Preserve native photographic detail instead of enlarging a portrait across desktop. */
+.hero-image { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.hero-image img { min-width:0; height:100%; object-fit:cover; object-position:center; }
+@media (max-width:640px) {
+  .hero-image { grid-template-columns:minmax(0,1fr); }
+  .hero-image .hero-side { display:none; }
+}
